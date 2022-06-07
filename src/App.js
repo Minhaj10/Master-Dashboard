@@ -5,7 +5,7 @@ import {FiSettings} from 'react-icons/fi';
 import {TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 const App = () => {
-    const activeMenu= true;
+    const activeMenu= false;
   return (
     <div>
         <BrowserRouter>
@@ -28,7 +28,38 @@ const App = () => {
             <div className="{
                 `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`
             }">
+            
+            <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+                navbar
+            </div>
 
+            </div>
+
+            <div>
+                <Routes>
+                    <Route path='/' element="Ecommerce"></Route>
+                    <Route path='/ecommerce' element="Ecommerce"></Route>
+
+                    <Route path='/orders' element="Orders"></Route>
+                    <Route path='/employees' element="Employees"></Route>
+                    <Route path='/orders' element="Orders"></Route>
+                    <Route path='/customers' element="Customers"></Route>
+
+                    <Route path='/kanban' element="Kanban"></Route>
+                    <Route path='/editor' element="Editor"></Route>
+                    <Route path='/calendar' element="Calendar"></Route>
+                    <Route path='/colour-picker' element="ColourPicker"></Route>
+
+                    <Route path='/line' element="Line"></Route>
+                    <Route path='/area' element="Area"></Route>
+                    <Route path='/bar' element="Bar"></Route>
+                    <Route path='/pie' element="Pie"></Route>
+                    <Route path='/financial' element="Financial"></Route>
+                    <Route path='/colour-mapping' element="ColourMapping"></Route>
+                    <Route path='/pyramid' element="Pyramid"></Route>
+                    <Route path='/stacked' element="Stacked"></Route>
+                    
+                </Routes>
             </div>
         </div>
         </BrowserRouter>
