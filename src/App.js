@@ -5,9 +5,10 @@ import {FiSettings} from 'react-icons/fi';
 import {TooltipComponent } from '@syncfusion/ej2-react-popups';
 import {Navbar,Footer,Sidebar,ThemeSettings} from './components'
 import {Calendar,ColorPicker,ColorMapping,Customers,Ecommerce,Editor,Employees,Line,Pyramid,Bar,Area,Stacked,Kanban,Pie,Financial,Orders} from './pages'
-
+import { useStateContext } from './contexts/ContextProvider';
 const App = () => {
-    const activeMenu= true;
+    const {activeMenu} =useStateContext();
+
   return (
     <div>
         <BrowserRouter>
