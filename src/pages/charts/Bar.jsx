@@ -4,10 +4,10 @@ import {
   SeriesCollectionDirective,
   SeriesDirective,
   Inject,
-  BarSeries,
-  DataLabel,
-  Category,
   Legend,
+  Category,
+  BarSeries,
+  Tooltip,
 } from "@syncfusion/ej2-react-charts";
 
 import {
@@ -16,10 +16,8 @@ import {
   barPrimaryYAxis,
 } from "../../data/dummy";
 import { useStateContext } from "../../contexts/ContextProvider";
-import { Tooltip } from "@syncfusion/ej2-react-popups";
-import { IoLogoPolymer } from "react-icons/io";
 
-const Bar = () => {
+const Bar = ({ width, height }) => {
   const { currentMode } = useStateContext();
 
   return (
@@ -27,20 +25,17 @@ const Bar = () => {
       id="charts"
       primaryXAxis={barPrimaryXAxis}
       primaryYAxis={barPrimaryYAxis}
-
-      // background={currentMode === "Dark" ? "#33373E" : "#fff"}
-      // // legendSettings={{ background: "white" }}
+      width={width}
+      height={height}
+      chartArea={{ border: { width: 0 } }}
+      tooltip={{ enable: true }}
+      background={currentMode === "Dark" ? "#33373E" : "#fff"}
+      legendSettings={{ background: "white" }}
     >
-      <Inject services={[BarSeries, Legend, Tooltip, DataLabel, Category]} />
+      <Inject services={[BarSeries, Category, Legend, Tooltip]} />
       <SeriesCollectionDirective>
-        {barCustomSeries.map((item) => (
-          <SeriesDirective
-            dataSource={item.dataSource}
-            xName={item.xName}
-            yName={item.yName}
-            name={item.name}
-            type={item.type}
-          />
+        {barCustomSeries.map((item, index) => (
+          <SeriesDirective key={index} {...item} />
         ))}
       </SeriesCollectionDirective>
     </ChartComponent>
