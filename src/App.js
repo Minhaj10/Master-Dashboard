@@ -75,7 +75,7 @@ const App = () => {
                 <Route path="/todo" element={<Todo />}></Route>
                 <Route path="/editor" element={<Editor />}></Route>
                 <Route path="/calendar" element={<Calendar />}></Route>
-                <Route path="/colour-picker" element={<ColorPicker />}></Route>
+                <Route path="/colorPicker" element={<ColorPicker />}></Route>
 
                 <Route path="/line" element={<Line />}></Route>
                 <Route path="/area" element={<Area />}></Route>
