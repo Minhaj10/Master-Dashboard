@@ -17,7 +17,7 @@ import {
   Bar,
   Area,
   Stacked,
-  Kanban,
+  Todo,
   Pie,
   Financial,
   Orders,
@@ -72,7 +72,7 @@ const App = () => {
                 <Route path="/orders" element={<Orders />}></Route>
                 <Route path="/customers" element={<Customers />}></Route>
 
-                <Route path="/kanban" element={<Kanban />}></Route>
+                <Route path="/todo" element={<Todo />}></Route>
                 <Route path="/editor" element={<Editor />}></Route>
                 <Route path="/calendar" element={<Calendar />}></Route>
                 <Route path="/colour-picker" element={<ColorPicker />}></Route>
