@@ -255,7 +255,7 @@ export const areaCustomSeries = [
     dataSource: areaChartData[2],
     xName: "x",
     yName: "y",
-    name: "Germany",
+    name: "Bangladesh",
     opacity: "0.8",
     type: "SplineArea",
     width: "2",
@@ -265,17 +265,17 @@ export const areaCustomSeries = [
 export const barChartData = [
   [
     { x: "USA", y: 46 },
-    { x: "GBR", y: 27 },
+    { x: "BD", y: 27 },
     { x: "CHN", y: 26 },
   ],
   [
     { x: "USA", y: 37 },
-    { x: "GBR", y: 23 },
+    { x: "BD", y: 23 },
     { x: "CHN", y: 18 },
   ],
   [
     { x: "USA", y: 38 },
-    { x: "GBR", y: 17 },
+    { x: "BD", y: 17 },
     { x: "CHN", y: 26 },
   ],
 ];
@@ -623,24 +623,24 @@ export const chatData = [
   {
     image: avatar2,
     message: "Roman Joined the Team!",
-    desc: "Congratulate him",
+    desc: "অভিনন্দন",
     time: "9:08 AM",
   },
   {
     image: avatar3,
     message: "New message received",
-    desc: "Salma sent you new message",
+    desc: "কি খবর? ",
     time: "11:56 AM",
   },
   {
     image: avatar4,
     message: "New Payment received",
-    desc: "Check your earnings",
+    desc: "Call me its urgent",
     time: "4:39 AM",
   },
   {
     image: avatar,
-    message: "Jolly completed tasks",
+    message: "Minhaj completed tasks",
     desc: "Assign her new tasks",
     time: "1:12 AM",
   },
@@ -955,7 +955,7 @@ export const customersData = [
     StatusBg: "#8BE78B",
     Weeks: "40",
     Budget: "$2.4k",
-    Location: "India",
+    Location: "Bangladesh",
   },
   {
     CustomerID: 1002,
@@ -987,7 +987,7 @@ export const customersData = [
   {
     CustomerID: 1004,
 
-    CustomerName: "Christopher Jamil",
+    CustomerName: "Minhaj ahmed",
     CustomerEmail: "jamil@gmail.com",
     ProjectName: "MedicalPro WP Theme",
     Status: "Completed",
@@ -1052,7 +1052,7 @@ export const customersData = [
   {
     CustomerID: 1009,
 
-    CustomerName: "Christopher Jamil",
+    CustomerName: "Minhaj ahmed",
     CustomerEmail: "jamil@gmail.com",
     ProjectName: "MedicalPro WP Theme",
     Status: "Completed",
