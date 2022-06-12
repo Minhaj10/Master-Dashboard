@@ -1,18 +1,15 @@
 import React from "react";
 import {
-  AxisModel,
   ChartComponent,
   SeriesCollectionDirective,
   SeriesDirective,
   Inject,
-  LegendSettingsModel,
   HiloSeries,
-  Category,
   Tooltip,
-  ILoadedEventArgs,
+  DateTime,
   Zoom,
+  Logarithmic,
   Crosshair,
-  ChartTheme,
 } from "@syncfusion/ej2-react-charts";
 
 import {
@@ -21,56 +18,60 @@ import {
   FinancialPrimaryYAxis,
 } from "../../data/dummy";
 import { useStateContext } from "../../contexts/ContextProvider";
+import { ChartsHeader } from "../../components";
 
-const chartData = [
-  { x: "Jan", low: 87, high: 200 },
-  { x: "Feb", low: 45, high: 135 },
-  { x: "Mar", low: 19, high: 85 },
-  { x: "Apr", low: 31, high: 108 },
-  { x: "May", low: 27, high: 80 },
-  { x: "June", low: 84, high: 130 },
-  { x: "July", low: 77, high: 150 },
-  { x: "Aug", low: 54, high: 125 },
-  { x: "Sep", low: 60, high: 155 },
-  { x: "Oct", low: 60, high: 180 },
-  { x: "Nov", low: 88, high: 180 },
-  { x: "Dec", low: 84, high: 230 },
-];
-const primaryXAxis = {
-  valueType: "Category",
-  title: "Months",
-};
-const primaryYAxis = {
-  labelFormat: "{value}$",
-  edgeLabelPlacement: "Shift",
-  title: "Rainfall",
-};
-const style = { textAlign: "center" };
+const date1 = new Date("2017, 1, 1");
 
-const Bar = ({ width, height }) => {
+// eslint-disable-next-line consistent-return
+function filterValue(value) {
+  if (value.x >= date1) {
+    // eslint-disable-next-line no-sequences
+    return value.x, value.high, value.low;
+  }
+}
+const returnValue = financialChartData.filter(filterValue);
+
+const Financial = () => {
   const { currentMode } = useStateContext();
 
   return (
-    <ChartComponent
-      id="charts"
-      primaryXAxis={primaryXAxis}
-      primaryYAxis={primaryYAxis}
-      title="Financial Graph"
-    >
-      <Inject services={[HiloSeries, Tooltip, Category, Crosshair, Zoom]} />
-      <SeriesCollectionDirective>
-        <SeriesDirective
-          dataSource={chartData}
-          xName="x"
-          yName="low"
-          name="India"
-          type="Hilo"
-          low="low"
-          high="high"
-        ></SeriesDirective>
-      </SeriesCollectionDirective>
-    </ChartComponent>
+    <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
+      <ChartsHeader category="Financial" title="AAPLE Historical" />
+      <div className="w-full">
+        <ChartComponent
+          id="charts"
+          primaryXAxis={FinancialPrimaryXAxis}
+          primaryYAxis={FinancialPrimaryYAxis}
+          chartArea={{ border: { width: 0 } }}
+          tooltip={{ enable: true, shared: true }}
+          crosshair={{ enable: true, lineType: "Vertical", line: { width: 0 } }}
+          background={currentMode === "Dark" ? "#33373E" : "#fff"}
+        >
+          <Inject
+            services={[
+              HiloSeries,
+              Tooltip,
+              DateTime,
+              Logarithmic,
+              Crosshair,
+              Zoom,
+            ]}
+          />
+          <SeriesCollectionDirective>
+            <SeriesDirective
+              dataSource={returnValue}
+              xName="x"
+              yName="low"
+              name="Apple Inc"
+              type="Hilo"
+              low="low"
+              high="high"
+            />
+          </SeriesCollectionDirective>
+        </ChartComponent>
+      </div>
+    </div>
   );
 };
 
-export default Bar;
+export default Financial;
